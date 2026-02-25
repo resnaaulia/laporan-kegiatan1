@@ -1,15 +1,6 @@
 @extends('layouts.app')
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>Login | Sistem Laporan Pegawai</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
-</head>
-<body>
-
+@section('content')
 <div class="login-wrapper">
 
     <div class="login-info">
@@ -42,6 +33,4 @@
     </div>
 
 </div>
-
-</body>
-</html>
+@endsection
