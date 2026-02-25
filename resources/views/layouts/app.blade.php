@@ -1,27 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <title>@yield('title')</title>
-   @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title', 'Login')</title>
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-
-@if(auth()->check())
-<div class="navbar">
-    <div><b>Laporan Kegiatan</b></div>
-    <div>
-        {{ auth()->user()->name }} |
-        <form action="/logout" method="POST" style="display:inline">
-            @csrf
-            <button class="btn btn-danger">Logout</button>
-        </form>
-    </div>
-</div>
-@endif
-
-<div class="container">
     @yield('content')
-</div>
-
 </body>
 </html>
