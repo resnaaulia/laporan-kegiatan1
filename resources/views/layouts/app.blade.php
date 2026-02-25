@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
 
