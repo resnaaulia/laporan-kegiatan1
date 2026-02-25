@@ -6,6 +6,11 @@
     <title>@yield('title', 'Login')</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+    body {
+        background: red !important;
+    }
+</style>
 </head>
 <body>
     @yield('content')
