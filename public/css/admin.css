@@ -1,0 +1,537 @@
+/* ======================
+   GLOBAL RESET
+====================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: #f5f6fa;
+}
+
+/* ======================
+   LAYOUT
+====================== */
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ======================
+   SIDEBAR
+====================== */
+.sidebar {
+    width: 260px;
+    background: linear-gradient(180deg, #18181B, #450A0A);
+    padding: 30px 20px;
+    color: white;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.menu {
+    list-style: none;
+}
+
+.menu li {
+    margin-bottom: 12px;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.menu a:hover {
+    background: rgba(255,255,255,.18);
+}
+
+.menu li.active a {
+    background: rgba(255,255,255,.28);
+}
+
+/* Logout */
+.logout-form {
+    margin-top: 30px;
+}
+
+.logout-btn {
+    width: 100%;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    background: rgba(255,255,255,.18);
+    color: white;
+}
+
+/* ======================
+   CONTENT
+====================== */
+.content {
+    flex: 1;
+    padding: 24px;
+}
+
+/* ======================
+   PAGE HEADER
+====================== */
+.page-head {
+    margin-bottom: 20px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.page-subtitle {
+    margin-top: 6px;
+    color: #555;
+}
+
+/* ======================
+   CARD
+====================== */
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    margin-bottom: 20px;
+}
+
+/* ======================
+   TABLE (ADMIN ONLY)
+====================== */
+.table-wrap {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table thead th {
+    text-align: left;
+    padding: 12px;
+    font-size: 13px;
+    color: #666;
+    border-bottom: 1px solid #eee;
+}
+
+.table tbody td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.table tbody tr:hover {
+    background: #fafaff;
+}
+
+.empty {
+    text-align: center;
+    padding: 24px;
+    color: #888;
+}
+
+/* ======================
+   NAME CELL
+====================== */
+.namecell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #6d5bff, #b16dff);
+    color: white;
+    font-weight: 700;
+}
+
+.name {
+    font-weight: 700;
+}
+
+.muted {
+    font-size: 12px;
+    color: #777;
+}
+
+/* ======================
+   BADGE
+====================== */
+.badge {
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    background: #f2efff;
+    color: #5b46ff;
+}
+
+/* ======================
+   BUTTON
+====================== */
+.btn-danger {
+    border: none;
+    background: #ef4444;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+@media (max-width: 768px) {
+    .app {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+    }
+}
+
+/* ======================
+   DASHBOARD ADMIN CARD
+====================== */
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* Card utama */
+.stat-card {
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    transition: .25s ease;
+}
+
+/* Hover halus (tetap ga clickable) */
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(0,0,0,.12);
+}
+
+/* Icon */
+.stat-icon i {
+    font-size: 28px;
+    opacity: .85;
+}
+
+/* Text */
+.stat-info h2 {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.stat-info p {
+    margin-top: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+}
+
+/* Garis warna kiri */
+.stat-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    border-radius: 16px 0 0 16px;
+}
+
+/* Warna */
+.stat-card.blue::before   { background: #4f6dff; }
+.stat-card.green::before  { background: #22c55e; }
+.stat-card.orange::before { background: #f59e0b; }
+.stat-card.red::before    { background: #ef4444; }
+
+/* ===== DASHBOARD PEGAWAI ===== */
+.pegawai-page .dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.pegawai-page .stat-card {
+    cursor: default; /* pastikan ga clickable */
+}
+
+/* ======================
+   TABEL LAPORAN PEGAWAI
+   ====================== */
+
+.table-card {
+    margin-top: 24px;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.custom-table th {
+    font-size: 13px;
+    opacity: .7;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.custom-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.custom-table tr:hover {
+    background: #fafaff;
+}
+
+/* STATUS */
+.badge-approved {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge-pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.badge-rejected {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* ===============================
+   FORM LAPORAN PEGAWAI
+   =============================== */
+
+.form-card {
+    max-width: 800px;
+}
+
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #7c3aed;
+}
+
+.form-action {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.btn-primary {
+    background: #7e7986;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background: #e5e7eb;
+    color: #333;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+.table-modern {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-modern th {
+    text-align: left;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #6b7280;
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.table-modern td {
+    padding: 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.badge {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge.success { background: #dcfce7; color: #166534; }
+.badge.warning { background: #fef3c7; color: #92400e; }
+.badge.danger  { background: #fee2e2; color: #991b1b; }
+
+.empty {
+    text-align: center;
+    color: #9ca3af;
+    padding: 20px;
+}
+
+.badge-approved {
+    background-color: #16a34a;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.menu-item {
+    display: block;
+    padding: 12px 16px;
+    color: #e5e7eb;
+    text-decoration: none;
+    position: relative;
+}
+
+.menu-item:hover {
+    background-color: rgba(255,255,255,0.08);
+}
+
+/* 🔥 HALAMAN AKTIF */
+.menu-item.active {
+    background: linear-gradient(
+        90deg,
+        rgba(22,163,74,0.35),
+        rgba(22,163,74,0.05)
+    );
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 260px;
+    background: linear-gradient(180deg, #18181B, #450A0A);
+    padding: 20px;
+    color: white;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+/* MENU */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    margin-bottom: 6px;
+}
+
+.menu-item {
+    display: block;
+    padding: 12px 16px;
+    color: #e5e7eb;
+    text-decoration: none;
+    border-radius: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* 🔥 ACTIVE MENU */
+.menu-item.active {
+    background: linear-gradient(
+        90deg,
+        rgba(139, 158, 146, 0.35),
+        rgba(34, 197, 94, 0.05)
+    );
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* LOGOUT */
+.logout-btn {
+    margin-top: 30px;
+    width: 100%;
+    background-color: #555151a9;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+}

@@ -1,0 +1,802 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body{
+    background: #f5f6fa;
+    color: #111;
+}
+
+/* Layout */
+.wrapper{
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar{
+    width: 260px;
+    background: #5b5ff5;
+    padding: 30px 20px;
+    color: #fff;
+}
+
+.sidebar h2{
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+.sidebar ul{
+    list-style: none;
+}
+
+.sidebar ul li{
+    margin-bottom: 14px;
+}
+
+.sidebar ul li a{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #fff;
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.sidebar ul li a:hover{
+    background: rgba(255,255,255,0.18);
+}
+
+.sidebar ul li a.active{
+    background: rgba(255,255,255,0.25);
+}
+
+/* Content */
+.content{
+    flex: 1;
+    padding: 40px;
+}
+
+.header h1{
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.header p{
+    font-size: 14px;
+    color: #444;
+    font-weight: 600;
+}
+
+/* Statistik Card */
+.stats{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.stat-card{
+    background: #fff;
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow: hidden;
+}
+
+.stat-card .icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111;
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.stat-card h2{
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.stat-card p{
+    font-size: 14px;
+    font-weight: 700;
+    color: #111;
+}
+
+/* garis warna kiri */
+.stat-card::before{
+    content: "";
+    width: 6px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Variasi warna */
+.stat-card.blue::before{
+    background: #4f46e5;
+}
+
+.stat-card.green::before{
+    background: #22c55e;
+}
+
+.stat-card.orange::before{
+    background: #f59e0b;
+}
+
+.stat-card.red::before{
+    background: #ef4444;
+}
+
+/* Action card (tengah bawah) */
+.actions{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 22px;
+}
+
+.action-card{
+    background: #fff;
+    border-radius: 18px;
+    padding: 26px 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    text-align: center;
+    font-weight: 800;
+    color: #111;
+}
+
+/* ===========================
+   PAGE HEADER
+=========================== */
+.page-header{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:18px;
+}
+
+.page-header h1{
+    font-size:24px;
+    font-weight:700;
+    margin:0;
+}
+
+.muted{
+    margin-top:6px;
+    color:#bdb6d6;
+    font-size:14px;
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+.btn-primary{
+    background: linear-gradient(135deg, #480741, #a855f7);
+    color:#fff;
+    padding:12px 16px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:600;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    box-shadow: 0 10px 20px rgba(124, 58, 237, 0.25);
+    transition: 0.2s ease;
+}
+.btn-primary:hover{
+    transform: translateY(-2px);
+    opacity:0.95;
+}
+
+/* ===========================
+   CARD
+=========================== */
+.card{
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+}
+
+.card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:14px;
+}
+
+/* ===========================
+   SEARCH BOX
+=========================== */
+.search-box{
+    width: 320px;
+    max-width: 100%;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 14px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.search-box i{
+    color:#c9c2e5;
+}
+
+.search-box input{
+    width:100%;
+    border:none;
+    outline:none;
+    background: transparent;
+    color:#fff;
+    font-size:14px;
+}
+
+/* ===========================
+   TABLE
+=========================== */
+.table-wrap{
+    overflow:auto;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.03);
+}
+
+.table-modern{
+    width:100%;
+    border-collapse: collapse;
+    min-width: 900px;
+    background: rgba(255,255,255,0.02);
+}
+
+/* garis luar tabel */
+.table-modern{
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* garis header */
+.table-modern thead th{
+    text-align:left;
+    font-size:13px;
+    font-weight:800;
+    padding:14px 14px;
+    color:#efeaff;
+    background: rgba(124,58,237,0.22);
+
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+    border-right: 1px solid rgba(255,255,255,0.10);
+}
+
+/* biar kolom terakhir gak ada garis kanan dobel */
+.table-modern thead th:last-child{
+    border-right: none;
+}
+
+/* isi tabel: garis per baris + per kolom */
+.table-modern tbody td{
+    padding:14px 14px;
+    font-size:14px;
+    color:#fff;
+    vertical-align: middle;
+
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+/* kolom terakhir gak ada garis kanan */
+.table-modern tbody td:last-child{
+    border-right: none;
+}
+
+/* hover baris makin jelas */
+.table-modern tbody tr:hover{
+    background: rgba(255,255,255,0.06);
+}
+
+/* garis bawah terakhir hilang biar rapi */
+.table-modern tbody tr:last-child td{
+    border-bottom: none;
+}
+
+
+/* ===========================
+   BADGE STATUS
+=========================== */
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 12px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:700;
+    width: fit-content;
+}
+
+.badge-pending{
+    background: rgba(251, 191, 36, 0.18);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.25);
+}
+.badge-approved{
+    background: rgba(34, 197, 94, 0.16);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.22);
+}
+.badge-rejected{
+    background: rgba(239, 68, 68, 0.16);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.22);
+}
+
+/* catatan admin */
+.note-admin{
+    margin-top:10px;
+    font-size:12px;
+    color:#d6d0f0;
+    display:flex;
+    gap:8px;
+    align-items:flex-start;
+    line-height: 1.4;
+}
+
+/* ===========================
+   ACTION BUTTONS
+=========================== */
+.btn-group{
+    display:flex;
+    gap:8px;
+    align-items:center;
+}
+
+.btn-action{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.06);
+    color:#fff;
+    transition: 0.2s ease;
+    cursor:pointer;
+}
+.btn-action:hover{
+    transform: translateY(-2px);
+}
+
+.btn-view{
+    color:#60a5fa;
+}
+.btn-edit{
+    color:#fbbf24;
+}
+.btn-delete{
+    color:#ef4444;
+}
+
+.hint{
+    display:block;
+    margin-top:8px;
+    color:#bdb6d6;
+    font-size:11px;
+}
+
+/* ===========================
+   ADMIN TABLE (RAPIH)
+=========================== */
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    margin-bottom:18px;
+}
+
+.page-header h1{
+    margin:0;
+    font-size:24px;
+    font-weight:800;
+    color:#fff;
+}
+
+.muted{
+    margin-top:6px;
+    font-size:14px;
+    color:#cfc7ea;
+}
+
+.btn-primary{
+    background: linear-gradient(135deg, #480741, #d9b9e2);
+    color:#fff;
+    padding:12px 16px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:700;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    box-shadow: 0 12px 22px rgba(124,58,237,0.25);
+    transition:0.2s ease;
+}
+.btn-primary:hover{
+    transform: translateY(-2px);
+    opacity:0.95;
+}
+
+.card{
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+}
+
+.card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    margin-bottom:14px;
+}
+
+.small-info{
+    font-size:13px;
+    color:#cfc7ea;
+    padding:8px 12px;
+    border-radius:999px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.search-box{
+    width: 320px;
+    max-width: 100%;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 14px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.search-box i{
+    color:#c9c2e5;
+}
+
+.search-box input{
+    width:100%;
+    border:none;
+    outline:none;
+    background: transparent;
+    color:#fff;
+    font-size:14px;
+}
+
+.table-wrap{
+    overflow:auto;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.table-modern{
+    width:100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+.table-modern thead th{
+    text-align:left;
+    font-size:13px;
+    font-weight:800;
+    padding:14px 14px;
+    color:#efeaff;
+    background: rgba(124,58,237,0.22);
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.table-modern tbody td{
+    padding:14px 14px;
+    font-size:14px;
+    color:#fff;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    vertical-align: middle;
+}
+
+.table-modern tbody tr:hover{
+    background: rgba(255,255,255,0.04);
+}
+
+/* nama + avatar */
+.name-cell{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.avatar{
+    width:38px;
+    height:38px;
+    border-radius: 14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    color:#fff;
+    background: rgba(124,58,237,0.30);
+    border: 1px solid rgba(255,255,255,0.10);
+}
+
+.name{
+    font-weight:800;
+    line-height: 1.2;
+}
+
+.sub{
+    font-size:12px;
+    color:#cfc7ea;
+    margin-top:2px;
+}
+
+/* badge role */
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 12px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:800;
+    width: fit-content;
+}
+
+.badge-role{
+    background: rgba(34, 197, 94, 0.14);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.20);
+}
+
+/* aksi */
+.btn-group{
+    display:flex;
+    gap:8px;
+    align-items:center;
+}
+.btn-group.center{
+    justify-content:center;
+}
+
+.btn-action{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.06);
+    color:#fff;
+    transition: 0.2s ease;
+    cursor:pointer;
+}
+.btn-action:hover{
+    transform: translateY(-2px);
+}
+
+.btn-view{ color:#60a5fa; }
+.btn-edit{ color:#fbbf24; }
+.btn-delete{ color:#ef4444; }
+
+.hint{
+    display:block;
+    margin-top:8px;
+    color:#bdb6d6;
+    font-size:11px;
+}
+
+/* ====== Pegawai Table ====== */
+
+.card-panel{
+    background: rgba(255,255,255,0.06);
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.table-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:14px;
+    flex-wrap:wrap;
+}
+
+.search-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    padding:10px 12px;
+    border-radius: 14px;
+    min-width: 280px;
+}
+
+.search-box i{
+    color: rgba(255,255,255,0.75);
+}
+
+.search-box input{
+    background: transparent;
+    border:none;
+    outline:none;
+    color:#fff;
+    width:100%;
+    font-size:14px;
+}
+
+.total-text{
+    color: rgba(255,255,255,0.85);
+    font-size:14px;
+}
+
+.table-wrap{
+    overflow:auto;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.14);
+}
+
+/* tabel beneran */
+.table-modern{
+    width:100%;
+    border-collapse: collapse;
+    min-width: 900px;
+    background: rgba(255,255,255,0.02);
+}
+
+/* header */
+.table-modern thead th{
+    padding:14px 14px;
+    text-align:left;
+    font-size:13px;
+    font-weight:800;
+    color:#f4efff;
+    background: rgba(124,58,237,0.22);
+
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+    border-right: 1px solid rgba(255,255,255,0.10);
+}
+
+.table-modern thead th:last-child{
+    border-right:none;
+}
+
+/* isi + GARIS PER BARIS */
+.table-modern tbody td{
+    padding:14px 14px;
+    font-size:14px;
+    color:#fff;
+    vertical-align: middle;
+
+    border-bottom: 1px solid rgba(255,255,255,0.14);
+    border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.table-modern tbody td:last-child{
+    border-right:none;
+}
+
+.table-modern tbody tr:hover{
+    background: rgba(255,255,255,0.06);
+}
+
+.table-modern tbody tr:last-child td{
+    border-bottom:none;
+}
+
+/* nama cell */
+.name-cell{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.avatar-circle{
+    width:38px;
+    height:38px;
+    border-radius: 50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    color:#fff;
+    background: rgba(124,58,237,0.8);
+    border: 2px solid rgba(255,255,255,0.15);
+}
+
+.name-text{
+    font-weight:700;
+}
+
+.id-text{
+    font-size:12px;
+    color: rgba(255,255,255,0.7);
+}
+
+/* badge role */
+.badge-role{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius: 999px;
+    font-size:12px;
+    font-weight:700;
+    background: rgba(34,197,94,0.18);
+    border: 1px solid rgba(34,197,94,0.35);
+    color: #d7ffe5;
+}
+
+/* tombol aksi */
+.aksi-btns{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:6px;
+}
+
+.btn-icon{
+    width:34px;
+    height:34px;
+    border-radius: 10px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    color:#fff;
+    text-decoration:none;
+    transition:0.2s;
+}
+
+.btn-icon:hover{
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.14);
+}
+
+.btn-icon.danger{
+    background: rgba(239,68,68,0.16);
+    border: 1px solid rgba(239,68,68,0.35);
+}
+
+.hint{
+    font-size:12px;
+    color: rgba(255,255,255,0.6);
+}
